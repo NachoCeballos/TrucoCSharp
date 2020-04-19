@@ -6,10 +6,20 @@ namespace Truco
     {
         static void Main(string[] args)
         {
+            Mazo mazo = new Mazo();
+
+
 
             Jugador player1 = new Jugador();
+            player1.Cartas = mazo.Repartir();
 
             Jugador player2 = new Jugador();
+            player2.Cartas = mazo.Repartir();
+
+            
+            Console.WriteLine(player1);
+            Console.WriteLine(player2);
+
 
 
             int puntosJ1 = 0, puntosJ2 = 0, contJ1 = 0, contJ2 = 0, cont = 0;
@@ -28,8 +38,8 @@ namespace Truco
 
             do
             {
-                player1.cartasAleatorios();
-                player2.cartasAleatorios();
+                //player1.cartasAleatorios();
+                //player2.cartasAleatorios();
 
                 int rP1 = 0, rP2 = 0;
 
@@ -38,9 +48,9 @@ namespace Truco
                 Console.Write("\t\t");
                 Console.WriteLine($"Puntos de {player1.nombre} {puntosJ1}\t\t Puntos de {player2.nombre} {puntosJ2}");
 
-                Console.WriteLine($"a) { player1.myCarta1} \t\t a) { player2.myCarta1} ");
-                Console.WriteLine($"b) { player1.myCarta2} \t\t b) { player2.myCarta2} ");
-                Console.WriteLine($"c) { player1.myCarta3} \t\t c) { player2.myCarta3} ");
+                //Console.WriteLine($"a) { player1.myCarta1} \t\t a) { player2.myCarta1} ");
+                //Console.WriteLine($"b) { player1.myCarta2} \t\t b) { player2.myCarta2} ");
+                //Console.WriteLine($"c) { player1.myCarta3} \t\t c) { player2.myCarta3} ");
 
                 
                 if (cont == 0)
@@ -70,15 +80,15 @@ namespace Truco
                         switch (Console.ReadLine())
                         {
                             case "a":
-                                rP1 = player1.carta1;
+                                //rP1 = player1.carta1;
                                 break;
 
                             case "b":
-                                rP1 = player1.carta2;
+                                //rP1 = player1.carta2;
                                 break;
 
                             case "c":
-                                rP1 = player1.carta3;
+                                //rP1 = player1.carta3;
                                 break;
                         }
 
@@ -88,15 +98,15 @@ namespace Truco
                         switch (Console.ReadLine())
                         {
                             case "a":
-                                rP2 = player2.carta1;
+                                //rP2 = player2.carta1;
                                 break;
 
                             case "b":
-                                rP2 = player2.carta2;
+                                //rP2 = player2.carta2;
                                 break;
 
                             case "c":
-                                rP2 = player2.carta3;
+                                //rP2 = player2.carta3;
                                 break;
                         }
 
@@ -122,15 +132,15 @@ namespace Truco
                         switch (Console.ReadLine())
                         {
                             case "a":
-                                rP2 = player2.carta1;
+                                //rP2 = player2.carta1;
                                 break;
 
                             case "b":
-                                rP2 = player2.carta2;
+                                //rP2 = player2.carta2;
                                 break;
 
                             case "c":
-                                rP2 = player2.carta3;
+                                //rP2 = player2.carta3;
                                 break;
                         }
 
@@ -140,15 +150,15 @@ namespace Truco
                         switch (Console.ReadLine())
                         {
                             case "a":
-                                rP1 = player1.carta1;
+                                //rP1 = player1.carta1;
                                 break;
 
                             case "b":
-                                rP1 = player1.carta2;
+                                //rP1 = player1.carta2;
                                 break;
 
                             case "c":
-                                rP1 = player1.carta3;
+                                //rP1 = player1.carta3;
                                 break;
                         }
 
