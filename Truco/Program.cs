@@ -11,15 +11,8 @@ namespace Truco
 
 
             Jugador player1 = new Jugador();
-            player1.Cartas = mazo.Repartir();
 
             Jugador player2 = new Jugador();
-            player2.Cartas = mazo.Repartir();
-
-            
-            Console.WriteLine(player1);
-            Console.WriteLine(player2);
-
 
 
             int puntosJ1 = 0, puntosJ2 = 0, contJ1 = 0, contJ2 = 0, cont = 0;
@@ -38,8 +31,9 @@ namespace Truco
 
             do
             {
-                //player1.cartasAleatorios();
-                //player2.cartasAleatorios();
+                player1.Cartas = mazo.Repartir();
+                player2.Cartas = mazo.Repartir();
+
 
                 int rP1 = 0, rP2 = 0;
 
@@ -48,11 +42,12 @@ namespace Truco
                 Console.Write("\t\t");
                 Console.WriteLine($"Puntos de {player1.nombre} {puntosJ1}\t\t Puntos de {player2.nombre} {puntosJ2}");
 
-                //Console.WriteLine($"a) { player1.myCarta1} \t\t a) { player2.myCarta1} ");
-                //Console.WriteLine($"b) { player1.myCarta2} \t\t b) { player2.myCarta2} ");
-                //Console.WriteLine($"c) { player1.myCarta3} \t\t c) { player2.myCarta3} ");
-
+                Console.WriteLine($"a) {player1.Cartas[0].Numero} de {player1.Cartas[0].Palo} \t\t a) {player2.Cartas[0].Numero} de {player2.Cartas[0].Palo} ");
+                Console.WriteLine($"b) {player1.Cartas[1].Numero} de {player1.Cartas[1].Palo} \t\t b) {player2.Cartas[1].Numero} de {player2.Cartas[1].Palo} ");
+                Console.WriteLine($"c) {player1.Cartas[2].Numero} de {player1.Cartas[2].Palo} \t\t c) {player2.Cartas[2].Numero} de {player2.Cartas[2].Palo} ");
                 
+
+
                 if (cont == 0)
                 {
                     Console.WriteLine("\n" + player1.nombre + " es mano\n");
@@ -80,15 +75,15 @@ namespace Truco
                         switch (Console.ReadLine())
                         {
                             case "a":
-                                //rP1 = player1.carta1;
+                                rP1 = player1.Cartas[0].Puntaje;
                                 break;
 
                             case "b":
-                                //rP1 = player1.carta2;
+                                rP1 = player1.Cartas[1].Puntaje;
                                 break;
 
                             case "c":
-                                //rP1 = player1.carta3;
+                                rP1 = player1.Cartas[2].Puntaje;
                                 break;
                         }
 
@@ -98,30 +93,38 @@ namespace Truco
                         switch (Console.ReadLine())
                         {
                             case "a":
-                                //rP2 = player2.carta1;
+                                rP2 = player2.Cartas[0].Puntaje;
                                 break;
 
                             case "b":
-                                //rP2 = player2.carta2;
+                                rP2 = player2.Cartas[1].Puntaje;
                                 break;
 
                             case "c":
-                                //rP2 = player2.carta3;
+                                rP2 = player2.Cartas[2].Puntaje;
                                 break;
                         }
 
-                        if (Logica(rP1, rP2) == 1)
+                        switch (Logica(rP1, rP2))
                         {
-                            Console.WriteLine("Gana la carta de " + player1.nombre);
-                            contJ1++;
-                        }
+                            case 1:
+                                Console.WriteLine("Gana la carta de " + player1.nombre);
+                                a = 0;
+                                z++;
+                                contJ1++;
+                                break;
 
-                        if (Logica(rP1, rP2) == 2)
-                        {
-                            Console.WriteLine("Gana la carta de " + player2.nombre);
-                            a++;
-                            z = 0;
-                            contJ2++;
+                            case 2:
+                                Console.WriteLine("Gana la carta de " + player2.nombre);
+                                a++;
+                                contJ2++;
+                                break;
+
+                            case 0:
+                                Console.WriteLine("EMPATE");
+                                contJ1++;
+                                contJ2++;
+                                break;
                         }
                     }
 
@@ -132,15 +135,15 @@ namespace Truco
                         switch (Console.ReadLine())
                         {
                             case "a":
-                                //rP2 = player2.carta1;
+                                rP2 = player2.Cartas[0].Puntaje;
                                 break;
 
                             case "b":
-                                //rP2 = player2.carta2;
+                                rP2 = player2.Cartas[1].Puntaje;
                                 break;
 
                             case "c":
-                                //rP2 = player2.carta3;
+                                rP2 = player2.Cartas[2].Puntaje;
                                 break;
                         }
 
@@ -150,32 +153,39 @@ namespace Truco
                         switch (Console.ReadLine())
                         {
                             case "a":
-                                //rP1 = player1.carta1;
+                                rP1 = player1.Cartas[0].Puntaje;
                                 break;
 
                             case "b":
-                                //rP1 = player1.carta2;
+                                rP1 = player1.Cartas[1].Puntaje;
                                 break;
 
                             case "c":
-                                //rP1 = player1.carta3;
+                                rP1 = player1.Cartas[2].Puntaje;
                                 break;
                         }
 
-                        if (Logica(rP1, rP2) == 1)
+                        switch (Logica(rP1, rP2))
                         {
-                            Console.WriteLine("Gana la carta de " + player1.nombre);
-                            a = 0;
-                            z++;
-                            contJ1++;
-                        }
+                            case 1:
+                                Console.WriteLine("Gana la carta de " + player1.nombre);
+                                a = 0;
+                                z++;
+                                contJ1++;
+                                break;
 
-                        if (Logica(rP1, rP2) == 2)
-                        {
-                            Console.WriteLine("Gana la carta de " + player2.nombre);
-                            a++;
-                            contJ2++;
-                        }
+                            case 2:
+                                Console.WriteLine("Gana la carta de " + player2.nombre);
+                                a++;
+                                contJ2++;
+                                break;
+
+                            case 0:
+                                Console.WriteLine("EMPATE");
+                                contJ1++;
+                                contJ2++;
+                                break;
+                        }                                             
                     }
 
                     if(contJ1 == 2)
@@ -192,6 +202,7 @@ namespace Truco
                 contJ1 = 0;
                 contJ2 = 0;
                 cont++;
+                Console.WriteLine("Presione ENTER para continuar");
                 Console.ReadLine();
                 Console.Clear();
 
@@ -204,16 +215,23 @@ namespace Truco
 
                 int contJ1 = 0, contJ2 = 0;
 
-                if (cartaJ1 > cartaJ2)
+                if (cartaJ1 < cartaJ2)
                 {
                     contJ2++;
                     return 1;
                 }
-                else if (cartaJ1 < cartaJ2)
+                else if (cartaJ1 > cartaJ2)
                 {
                     contJ1++;
                     return 2;
                 }
+                else if (cartaJ1 == cartaJ2)
+                {
+                    contJ1++;
+                    contJ2++;
+                    return 0;
+                }
+
                 return 0;
             }
         }
